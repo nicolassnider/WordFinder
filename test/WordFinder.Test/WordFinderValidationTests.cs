@@ -105,7 +105,7 @@ public class WordFinderValidationTests
         // Act & Assert
         var ex = Assert.Throws<ArgumentException>(() => new WordFinderLib.WordFinder(matrix));
         Assert.Contains("Matrix cannot be null.", ex.Message);
-        Assert.Single(ex.Message.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)); // Only one error message
+        Assert.Equal("Matrix cannot be null.", ex.Message.Trim());
     }
 
     /// <summary>
@@ -120,7 +120,7 @@ public class WordFinderValidationTests
         // Act & Assert
         var ex = Assert.Throws<ArgumentException>(() => new WordFinderLib.WordFinder(emptyMatrix));
         Assert.Contains("Matrix cannot be empty.", ex.Message);
-        Assert.Single(ex.Message.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries)); // Only one error message
+        Assert.Equal("Matrix cannot be empty.", ex.Message.Trim());
     }
     #endregion
 
